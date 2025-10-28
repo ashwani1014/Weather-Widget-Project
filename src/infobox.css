@@ -1,0 +1,166 @@
+ 
+:root {
+    --color-primary-dark: #0277bd;  
+    --color-accent: #ffb300;        
+    --color-background: #f0f4f8;   
+    --color-text-header: #1a237e;  
+    --color-text-default: #455a64;  
+    --shadow-deep: 0 15px 30px rgba(0, 0, 0, 0.15), 0 5px 15px rgba(0, 0, 0, 0.05);
+    --transition-speed: 0.35s cubic-bezier(0.2, 0.8, 0.4, 1);  
+}
+
+ 
+.Infobox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    
+    background: linear-gradient(135deg, var(--color-background) 0%, #e0f7fa 100%); 
+    font-family: 'Inter', 'Roboto', sans-serif;  
+    box-sizing: border-box; 
+    overflow-x: hidden;
+}
+
+.Infobox h1 {
+    color: var(--color-text-header); 
+    font-size: 3rem; 
+    margin-bottom: 35px; 
+    font-weight: 700;
+    letter-spacing: -0.5px;  
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: fadeInDown 0.6s ease-out;  
+}
+ 
+.MuiCard-root {
+    width: 400px; 
+    max-width: 90%;
+    height: auto;
+    border-radius: 20px; 
+    background-color: #ffffff;
+    
+    
+    box-shadow: var(--shadow-deep); 
+    border: 1px solid rgba(255, 255, 255, 0.9); 
+    
+    transition: all var(--transition-speed);
+    
+    display: flex;
+    flex-direction: column; 
+    overflow: hidden;
+    cursor: pointer; 
+}
+
+ 
+.MuiCard-root:hover {
+    transform: perspective(1000px) rotateX(1deg) translateY(-8px); 
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 0 4px var(--color-primary-dark);
+}
+
+
+.MuiCardMedia-root {
+    height: 160px; 
+    object-fit: cover;
+    width: 100%;
+  
+    opacity: 0.98; 
+    filter: brightness(0.95); 
+    transition: filter 0.5s;
+}
+
+.MuiCard-root:hover .MuiCardMedia-root {
+    filter: brightness(1.05);  
+}
+
+ 
+.MuiCardContent-root {
+    padding: 20px 25px; 
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+ 
+.MuiTypography-h5 {
+    font-weight: 700;
+    color: var(--color-text-header); 
+    font-size: 1.75rem; 
+    margin: 0 0 5px 0; 
+    border-bottom: 2px solid var(--color-primary-dark); 
+    padding-bottom: 10px;
+}
+
+
+.main-data-group {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 5px 0;
+}
+
+.main-data {
+    font-size: 3rem; 
+    font-weight: 800;
+    color: var(--color-primary-dark); 
+    line-height: 1;
+}
+
+.main-condition {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-text-default);
+    text-transform: capitalize;
+}
+
+ 
+.MuiCardContent-root p {
+    font-size: 0.95rem; 
+    color: var(--color-text-default); 
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 4px 0;
+    border-bottom: 1px dashed #eee;  
+}
+
+ 
+.MuiCardContent-root p strong {
+    color: var(--color-text-dark);
+    font-weight: 600;
+    background-color: rgba(255, 179, 0, 0.1);  
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+ 
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+ 
+@media (max-width: 500px) {
+    .MuiCard-root {
+        border-radius: 16px;
+        width: 100%;
+    }
+    .Infobox h1 {
+        font-size: 2.2rem;
+    }
+    .main-data {
+        font-size: 2.5rem;
+    }
+    .MuiCardMedia-root {
+        height: 130px;
+    }
+    .MuiTypography-h5 {
+        font-size: 1.5rem;
+    }
+}
